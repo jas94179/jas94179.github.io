@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>galla Case Study</title>
+<meta name="description" content="galla case study by Jasdeep Singh">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Same system as the portfolio (lavender, Poppins, violet), with the project's own accent for its designs. */
+:root{--ink:#14162D;--muted:#5A5E80;--v:#6E55E8;--vs:#ECE8FF;--g:#1F9D63;--line:#E4E1F3;--bg:#F3F0FF;--bg2:#E9F0FF;
+--acc:#1F6B47;--acc2:#F2B01E;--accs:#E3F1E9;
+--f:'Poppins',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:light;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--f);color:var(--ink);background:var(--bg);background-image:radial-gradient(1100px 700px at 85% -5%,#E2DAFF 0%,transparent 60%),radial-gradient(900px 600px at -10% 30%,var(--bg2) 0%,transparent 60%),linear-gradient(180deg,#F6F3FF,#F1EEFD 50%,#F6F4FF);line-height:1.65;font-size:16px}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--v);outline-offset:3px;border-radius:8px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+nav{padding-block:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+nav .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;background:rgba(255,255,255,.85);border:1px solid #fff;padding:9px 16px;border-radius:30px}
+nav .back:hover{color:var(--v)}
+nav .me{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--v);background:rgba(255,255,255,.85);border:1px solid #fff;padding:7px 14px;border-radius:30px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding-block:28px 40px}
+.hero h1{font-size:clamp(44px,7vw,80px);letter-spacing:-2px;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .sub{font-size:clamp(19px,2.2vw,24px);font-weight:600;margin-top:12px;line-height:1.35}
+.hero .lede{color:var(--muted);margin-top:16px;max-width:34em}
+.hstage{border-radius:32px;padding:30px;min-width:0;display:grid;place-items:center}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.8);border:1.5px solid #fff;border-radius:24px;overflow:hidden}
+.meta div{padding:16px 20px;border-left:1px solid var(--line);min-width:0}
+.meta div:first-child{border:0}
+.meta dt{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:2px 0 0;font-weight:600;font-size:14.5px}
+section{padding-block:56px}
+.k{font-size:13px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--v);margin-bottom:10px}
+.sh{margin-bottom:28px;max-width:44em}
+.sh h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.8px}
+.sh p{color:var(--muted);margin-top:12px}
+.card{background:rgba(255,255,255,.82);border:1.5px solid #fff;border-radius:24px;padding:24px;min-width:0}
+.card h3{font-size:18px}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.num{font-size:13px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat b{display:block;font-size:clamp(30px,4vw,42px);letter-spacing:-1px;line-height:1.1;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px}
+.quote{margin-top:28px;background:var(--ink);color:#fff;border-radius:28px;padding:30px 34px;font-size:clamp(19px,2.4vw,26px);font-weight:500;line-height:1.4}
+.quote em{font-style:normal;color:#B9AEFF}
+.tbl{overflow-x:auto;background:#fff;border-radius:22px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;font-weight:600}
+tr:last-child td{border:0}
+tr.us td{background:var(--accs);font-weight:600}
+td.y{color:var(--g);font-weight:600} td.n{color:#9A9DB8}
+.shots{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 200px;scroll-snap-align:start}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.45}
+figcaption b{display:block;color:var(--ink);font-weight:600}
+.phone{position:relative;border-radius:28px;padding:6px;background:var(--ink);box-shadow:0 24px 44px -24px rgba(40,30,120,.55)}
+.phone::after,.gph .p::after{content:"";position:absolute;top:14px;left:50%;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:#05080a;box-shadow:inset 0 0 0 2px #1b1f24;z-index:2}
+.phone img{display:block;width:100%;border-radius:22px}
+.win{background:#fff;border-radius:18px;padding:8px;box-shadow:0 30px 60px -34px rgba(40,30,120,.55);border:1px solid var(--line)}
+.win .dots{display:flex;gap:6px;padding:4px 6px 8px}
+.win .dots i{width:9px;height:9px;border-radius:50%;background:#E4E1F3}
+.win img{display:block;width:100%;border-radius:10px;border:1px solid #EEF0F3}
+.feat{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;padding-block:26px;border-top:1px solid var(--line)}
+.feat:nth-of-type(even){grid-template-columns:1fr 1.5fr}
+.feat:nth-of-type(even) .ft{order:-1}
+.feat .ft{min-width:0}
+.feat h3{font-size:22px;margin-top:6px}
+.feat p{color:var(--muted);margin-top:8px}
+.ticks{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px}
+.ticks li{display:flex;gap:10px;font-size:14.5px}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:7px;background:var(--accs);color:var(--acc);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:2px}
+.dec{display:grid;grid-template-columns:.9fr 1.4fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.dec h3{font-size:18px}
+.dec p{color:var(--muted);font-size:14.5px}
+.dec .why{margin-top:6px;font-size:14px}
+.dec .why b{color:var(--ink)}
+.outs{display:flex;flex-wrap:wrap;gap:12px}
+.oc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;min-width:160px}
+.oc b{display:block;font-size:26px;color:var(--v);font-variant-numeric:tabular-nums}
+.oc span{font-size:13px;color:var(--muted)}
+.samp{font-size:12px;color:var(--muted);margin-top:10px}
+.ba{display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.ba div{padding:14px 18px;font-size:14.5px;border-top:1px solid var(--line)}
+.ba .h{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;border:0}
+.ba .b{color:var(--muted);text-decoration:line-through;text-decoration-color:#C9C5DE}
+.ba .a{font-weight:600}
+.end{margin-block:40px 24px;background:var(--ink);color:#fff;border-radius:32px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.end h2{font-size:clamp(24px,3vw,34px)}
+.end p{color:#C9CBE0;margin-top:6px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:40px;text-decoration:none;background:#fff;color:var(--ink)}
+.btn.o{background:transparent;color:#fff;border:1px solid #4A4D72}
+footer{padding-block:24px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;background:var(--accs);color:var(--acc)}
+@media (max-width:900px){.hero,.feat,.dec,.g2{grid-template-columns:1fr}.feat:nth-of-type(even){grid-template-columns:1fr}.feat:nth-of-type(even) .ft{order:0}.g3,.g4,.g5{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(3){border-left:0}.meta div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:520px){.g3,.g4,.g5{grid-template-columns:1fr}.ba{grid-template-columns:1fr}.ba .h:nth-child(2){display:none}.hstage{padding:18px}}
+
+.gstage{background:radial-gradient(circle at 50% 40%,#2A5A43,#17382A 72%)}
+.gph{position:relative;width:100%;max-width:440px;height:440px}
+.gph .p{position:absolute;top:50%;left:50%;width:180px;border-radius:30px;padding:6px;background:#0E211A;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.gph .p img{display:block;width:100%;border-radius:24px}
+.grp{margin-top:26px}
+.grp-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.grp-h h3{font-size:19px}
+.grp-h p{color:var(--muted);font-size:14px}
+.shots figure{flex:0 0 190px}
+.gph .l{transform:translate(-118%,-46%) rotate(-7deg) scale(.86)}
+.gph .r{transform:translate(18%,-46%) rotate(7deg) scale(.86)}
+.gph .c{transform:translate(-50%,-50%);width:200px;z-index:2}
+.gold{position:absolute;left:2%;top:6%;z-index:3;background:#F2B01E;color:#17382A;font-weight:700;font-size:12px;padding:7px 12px;border-radius:20px}
+.rcpt{background:#fff;color:#111;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.6;padding:20px 20px 24px;border-radius:4px;box-shadow:0 20px 40px -20px rgba(40,30,120,.4);transform:rotate(-1deg)}
+.rcpt .r2{display:flex;justify-content:space-between;gap:12px}
+.rcpt .rule{border-top:1.5px dashed #999;margin:8px 0}
+.pair{display:flex;gap:16px;justify-content:center}
+.pair .phone{flex:0 1 200px}
+.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.reels img{display:block;width:100%;border-radius:14px}
+.broch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.broch img{display:block;width:100%;border-radius:8px;box-shadow:0 14px 30px -18px rgba(40,30,120,.5)}
+.ver{display:flex;flex-direction:column;gap:0;border-left:3px solid var(--line);margin-left:8px}
+.ver div{position:relative;padding:0 0 22px 26px}
+.ver div::before{content:"";position:absolute;left:-10px;top:6px;width:17px;height:17px;border-radius:50%;background:#F2B01E;border:3px solid #F3F0FF}
+.ver b{display:block}.ver span{color:var(--muted);font-size:14px}
+@media (max-width:900px){.reels{grid-template-columns:repeat(3,1fr)}.broch{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gph{height:360px}.gph .p{width:140px}.gph .c{width:156px}}
+
+</style></head><body>
+<div class="wrap">
+<nav><a class="back" href="./">← Back to portfolio</a><span class="me">Jasdeep Singh · AI-Powered UX Designer</span></nav>
+
+<header class="hero">
+  <div>
+    <span class="pill">Case study · Product design · Self-initiated</span>
+    <h1>galla</h1>
+    <p class="sub">Billing for small Indian restaurants, <em style="font-style:normal;color:#1F6B47">designed for the counter.</em></p>
+    <p class="lede">An offline-first Android billing app that runs on the phone a restaurant already owns and prints to a cheap Bluetooth printer. I designed it from idea to a working, installed app, then built the brand and launch kit around it.</p>
+    <p class="lede" style="font-size:14px"><b style="color:var(--ink)">galla</b> is the Hindi word for a shop's cash box: the drawer every shopkeeper guards.</p>
+  </div>
+  <div class="hstage gstage">
+    <div class="gph"><span class="gold">● Works offline</span>
+      <div class="p l"><img src="cs/galla/real/counter.jpg" alt="Counter screen"></div>
+      <div class="p r"><img src="cs/galla/real/close_result.jpg" alt="Day close with short and OK results"></div>
+      <div class="p c"><img src="cs/galla/real/bill.jpg" alt="Bill sheet with GST and UPI"></div></div>
+  </div>
+</header>
+<dl class="meta"><div><dt>Role</dt><dd>Product designer and product owner</dd></div><div><dt>Timeline</dt><dd>Oct 2026 · 3 days to the first installed app</dd></div><div><dt>Platform</dt><dd>Android phone</dd></div><div><dt>Hardware</dt><dd>57 mm Bluetooth printer</dd></div></dl>
+
+<section>
+  <div class="sh"><div class="k">The problem</div><h2>Small restaurants pay big-restaurant prices for software they half use.</h2><p>Popular restaurant systems are built for bigger outlets, with yearly contracts and their own hardware. A dosa counter, a cafe or a family dine-in needs something simpler.</p></div>
+  <div class="g3"><div class="card"><span class="num">01</span><h3 style="margin-top:6px">Cost</h3><p>Several thousand rupees a year for software, plus add-ons and dedicated hardware.</p></div><div class="card"><span class="num">02</span><h3 style="margin-top:6px">Leakage</h3><p>Cash goes missing between billing and closing, hidden behind discounts and cancelled bills.</p></div><div class="card"><span class="num">03</span><h3 style="margin-top:6px">Internet</h3><p>The connection drops in the lunch rush, and cloud-only billing stops.</p></div><div class="card"><span class="num">04</span><h3 style="margin-top:6px">Complexity</h3><p>Staff find dense screens slow and confusing, so they fall back to paper.</p></div><div class="card"><span class="num">05</span><h3 style="margin-top:6px">GST rules</h3><p>Invoices need running numbers, CGST and SGST, and delivery orders follow different rules.</p></div><div class="card"><span class="num">06</span><h3 style="margin-top:6px">Month end</h3><p>The CA asks for GST numbers, and the owner hands over a bag of bills.</p></div></div>
+  <div class="quote">How might we give a small restaurant <em>honest, GST-correct billing</em> on a phone they already own, even when the internet doesn't work?</div>
+  <div class="g2" style="margin-top:16px">
+    <div class="card"><h3>Where galla wins</h3><p>Lowest cost to start, no new hardware beyond a cheap printer, offline by design, and protection against cash leakage from day one.</p></div>
+    <div class="card"><h3>What it leaves out, on purpose</h3><p>Inventory, recipes, loyalty and online ordering. Big systems do these well. A small counter needs fast, honest billing first.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Who it's for</div><h2>Three people share one phone</h2><p>Speed for the cashier, control for the owner. Their needs pull in different directions, so every screen respects who is using it.</p></div>
+  <div class="g3">
+    <div class="card"><span class="chip">Owner</span><h3 style="margin-top:12px">Wants to trust the numbers</h3><p>Not at the shop every hour. Approves discounts, sees the expected cash and hands clean files to the CA.</p></div>
+    <div class="card"><span class="chip">Manager</span><h3 style="margin-top:12px">Runs the floor</h3><p>Handles tables and rush hour, can approve a discount and closes the day when the owner is away.</p></div>
+    <div class="card"><span class="chip">Cashier</span><h3 style="margin-top:12px">Needs speed above all</h3><p>Bills all day. Gets big buttons and plain words, and counts the drawer without seeing the target.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Key decisions</div><h2>The calls that shaped it</h2><p>Each decision comes from one of the principles every screen had to pass.</p></div>
+  <div class="dec"><div><span class="chip">Offline first</span><h3 style="margin-top:10px">Save locally first, always</h3></div><div><p>Every bill is saved in an encrypted database on the phone. Billing never waits for a network.</p><p class="why"><b>Trade-off:</b> no live multi-phone sync in version one; backups are a file the owner shares.</p></div></div><div class="dec"><div><span class="chip">Built against leakage</span><h3 style="margin-top:10px">Blind count for cashiers</h3></div><div><p>Cashiers count the drawer without seeing the expected total. Owners and managers see it.</p><p class="why"><b>Why:</b> if the target is visible, a short drawer gets "found" money. Blind counts keep the number honest.</p></div></div><div class="dec"><div><span class="chip">Built against leakage</span><h3 style="margin-top:10px">Nothing is ever deleted</h3></div><div><p>Cancelled bills stay visible, struck through, with who cancelled and why. Discounts need an owner or manager PIN.</p><p class="why"><b>Why:</b> deletion is how leakage hides. A record that can't disappear also protects honest staff.</p></div></div><div class="dec"><div><span class="chip">Simple by design</span><h3 style="margin-top:10px">A maximum of four tabs</h3></div><div><p>Orders, Bills, Insights, Profile. Everything else lives in Profile, grouped by when you need it.</p><p class="why"><b>Trade-off:</b> owner-only tools sit one level deeper, which keeps the cashier's view clean.</p></div></div><div class="dec"><div><span class="chip">Designed for the real device</span><h3 style="margin-top:10px">"Rs" on paper, "₹" on screen</h3></div><div><p>Receipts print amounts as Rs, 32 characters a line.</p><p class="why"><b>Why:</b> many cheap thermal printers can't print the ₹ sign. Designing for the real printer beat designing for the mockup.</p></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">The experience</div><h2>The real app, screen by screen</h2><p>Real screens from the working app, in three parts of a restaurant's day. Scroll each row sideways. The sample shop and its numbers are test data.</p></div>
+  <div class="grp"><div class="grp-h"><h3>First run</h3><p>From install to the first bill in a few short steps.</p></div><div class="shots" tabindex="0" aria-label="First run screens, scroll sideways"><figure><div class="phone"><img src="cs/galla/real/welcome.jpg" alt="Welcome" loading="lazy"></div><figcaption><b>Welcome</b>The promise up front: works even when the internet doesn&#x27;t.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/terms.jpg" alt="Before you start" loading="lazy"></div><figcaption><b>Before you start</b>A plain-language summary: your data stays on this phone.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/setup_order.jpg" alt="How do customers order?" loading="lazy"></div><figcaption><b>How do customers order?</b>Counter, dine-in or both, in words owners use.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/setup_pin.jpg" alt="Create your owner PIN" loading="lazy"></div><figcaption><b>Create your owner PIN</b>Every person gets their own PIN.</figcaption></figure></div></div><div class="grp"><div class="grp-h"><h3>At the counter</h3><p>Fast enough for a lunch-hour queue.</p></div><div class="shots" tabindex="0" aria-label="At the counter screens, scroll sideways"><figure><div class="phone"><img src="cs/galla/real/counter.jpg" alt="Counter" loading="lazy"></div><figcaption><b>Counter</b>Big tiles, veg and non-veg marks, a running token number.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/bill.jpg" alt="Bill sheet" loading="lazy"></div><figcaption><b>Bill sheet</b>GST worked out. Counter, Zomato or Swiggy. Cash, UPI or card.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/upi.jpg" alt="UPI QR" loading="lazy"></div><figcaption><b>UPI QR</b>The amount is filled in, with a reminder to check the payment arrived.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/tables.jpg" alt="Tables" loading="lazy"></div><figcaption><b>Tables</b>Busy and free tables at a glance, with the running bill.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/invoice.jpg" alt="Tax invoice" loading="lazy"></div><figcaption><b>Tax invoice</b>GSTIN, FSSAI, CGST and SGST. Send on WhatsApp or print.</figcaption></figure></div></div><div class="grp"><div class="grp-h"><h3>Behind the counter</h3><p>Tools for the owner, without the clutter.</p></div><div class="shots" tabindex="0" aria-label="Behind the counter screens, scroll sideways"><figure><div class="phone"><img src="cs/galla/real/insights.jpg" alt="Insights" loading="lazy"></div><figcaption><b>Insights</b>Today, 7 or 30 days, in plain sentences.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/close.jpg" alt="Close the day" loading="lazy"></div><figcaption><b>Close the day</b>Sales by payment type, then count the drawer.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/close_result.jpg" alt="Short or OK" loading="lazy"></div><figcaption><b>Short or OK</b>Every closing is kept: who counted, and the difference.</figcaption></figure><figure><div class="phone"><img src="cs/galla/real/staff.jpg" alt="Staff and PINs" loading="lazy"></div><figcaption><b>Staff and PINs</b>Everyone gets their own PIN.</figcaption></figure></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Brand and launch kit</div><h2>A product needs a story too</h2><p>Short reels for Instagram and a four-page brochure for restaurant owners.</p></div>
+  <div class="reels"><img src="cs/galla/14.jpg" alt="Reel frame" loading="lazy"><img src="cs/galla/15.jpg" alt="Reel frame" loading="lazy"><img src="cs/galla/16.jpg" alt="Reel frame" loading="lazy"><img src="cs/galla/17.jpg" alt="Reel frame" loading="lazy"><img src="cs/galla/18.jpg" alt="Reel frame" loading="lazy"></div>
+  <div class="broch" style="margin-top:18px"><img src="cs/galla/19.jpg" alt="Brochure page" loading="lazy"><img src="cs/galla/20.jpg" alt="Brochure page" loading="lazy"><img src="cs/galla/21.jpg" alt="Brochure page" loading="lazy"><img src="cs/galla/22.jpg" alt="Brochure page" loading="lazy"></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">What I learned</div><h2>Three lessons from a real counter</h2></div>
+  <div class="g3"><div class="card"><h3>Permission design is UX</h3><p>The hardest problems weren't layout. They were trust: who can give a discount, who sees the expected cash, what can never be deleted.</p></div><div class="card"><h3>The real device is the real spec</h3><p>A ₹ sign that looks perfect on screen prints as junk on a thermal printer. Testing on real hardware changed decisions I thought were final.</p></div><div class="card"><h3>One early principle shapes everything</h3><p>"Save on the phone first" decided backups, multi-restaurant support, encryption and the future cloud plan.</p></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">What I'd test next</div><h2>Before calling it done</h2></div>
+  <div class="g3">
+    <div class="card"><span class="num">01</span><h3 style="margin-top:6px">Speed in a real rush</h3><p>Time a cashier billing during a lunch-hour queue, and find where taps slow down.</p></div>
+    <div class="card"><span class="num">02</span><h3 style="margin-top:6px">Trust in the blind count</h3><p>Do cashiers feel accused, or protected? Talk to them after a week of closings.</p></div>
+    <div class="card"><span class="num">03</span><h3 style="margin-top:6px">Owner time at month end</h3><p>Compare the CA handover with the old bag of paper bills.</p></div>
+  </div>
+</section>
+<div class="end"><div><h2>Thanks for reading.</h2><p>Next case study: Memory, in your control</p></div>
+<div class="btns"><a class="btn" href="memory.html">Read next →</a><a class="btn o" href="./#contact">Get in touch</a></div></div>
+
+<footer><span>© 2026 Jasdeep Singh</span><span>AI-Powered UX Designer</span></footer>
+</div>
+<script>
+try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
+function toTop(){if(!location.hash||location.hash==='#'){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}}
+toTop();document.addEventListener('DOMContentLoaded',toTop);window.addEventListener('load',function(){toTop();setTimeout(toTop,50)});window.addEventListener('pageshow',toTop);
+</script></body></html>

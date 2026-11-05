@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GenAI Suite Case Study</title>
+<meta name="description" content="GenAI suite for consulting teams: case study by Jasdeep Singh">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Same system as the portfolio (lavender, Poppins, violet), with the project's own accent for its designs. */
+:root{--ink:#14162D;--muted:#5A5E80;--v:#6E55E8;--vs:#ECE8FF;--g:#1F9D63;--line:#E4E1F3;--bg:#F3F0FF;--bg2:#E9F0FF;
+--acc:#6E55E8;--acc2:#14162D;--accs:#ECE8FF;
+--f:'Poppins',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:light;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--f);color:var(--ink);background:var(--bg);background-image:radial-gradient(1100px 700px at 85% -5%,#E2DAFF 0%,transparent 60%),radial-gradient(900px 600px at -10% 30%,var(--bg2) 0%,transparent 60%),linear-gradient(180deg,#F6F3FF,#F1EEFD 50%,#F6F4FF);line-height:1.65;font-size:16px}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--v);outline-offset:3px;border-radius:8px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+nav{padding-block:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+nav .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;background:rgba(255,255,255,.85);border:1px solid #fff;padding:9px 16px;border-radius:30px}
+nav .back:hover{color:var(--v)}
+nav .me{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--v);background:rgba(255,255,255,.85);border:1px solid #fff;padding:7px 14px;border-radius:30px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding-block:28px 40px}
+.hero h1{font-size:clamp(44px,7vw,80px);letter-spacing:-2px;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .sub{font-size:clamp(19px,2.2vw,24px);font-weight:600;margin-top:12px;line-height:1.35}
+.hero .lede{color:var(--muted);margin-top:16px;max-width:34em}
+.hstage{border-radius:32px;padding:30px;min-width:0;display:grid;place-items:center}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.8);border:1.5px solid #fff;border-radius:24px;overflow:hidden}
+.meta div{padding:16px 20px;border-left:1px solid var(--line);min-width:0}
+.meta div:first-child{border:0}
+.meta dt{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:2px 0 0;font-weight:600;font-size:14.5px}
+section{padding-block:56px}
+.k{font-size:13px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--v);margin-bottom:10px}
+.sh{margin-bottom:28px;max-width:44em}
+.sh h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.8px}
+.sh p{color:var(--muted);margin-top:12px}
+.card{background:rgba(255,255,255,.82);border:1.5px solid #fff;border-radius:24px;padding:24px;min-width:0}
+.card h3{font-size:18px}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.num{font-size:13px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat b{display:block;font-size:clamp(30px,4vw,42px);letter-spacing:-1px;line-height:1.1;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px}
+.quote{margin-top:28px;background:var(--ink);color:#fff;border-radius:28px;padding:30px 34px;font-size:clamp(19px,2.4vw,26px);font-weight:500;line-height:1.4}
+.quote em{font-style:normal;color:#B9AEFF}
+.tbl{overflow-x:auto;background:#fff;border-radius:22px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;font-weight:600}
+tr:last-child td{border:0}
+tr.us td{background:var(--accs);font-weight:600}
+td.y{color:var(--g);font-weight:600} td.n{color:#9A9DB8}
+.shots{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 200px;scroll-snap-align:start}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.45}
+figcaption b{display:block;color:var(--ink);font-weight:600}
+.phone{position:relative;border-radius:28px;padding:6px;background:var(--ink);box-shadow:0 24px 44px -24px rgba(40,30,120,.55)}
+.phone::after,.gph .p::after{content:"";position:absolute;top:14px;left:50%;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:#05080a;box-shadow:inset 0 0 0 2px #1b1f24;z-index:2}
+.phone img{display:block;width:100%;border-radius:22px}
+.win{background:#fff;border-radius:18px;padding:8px;box-shadow:0 30px 60px -34px rgba(40,30,120,.55);border:1px solid var(--line)}
+.win .dots{display:flex;gap:6px;padding:4px 6px 8px}
+.win .dots i{width:9px;height:9px;border-radius:50%;background:#E4E1F3}
+.win img{display:block;width:100%;border-radius:10px;border:1px solid #EEF0F3}
+.feat{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;padding-block:26px;border-top:1px solid var(--line)}
+.feat:nth-of-type(even){grid-template-columns:1fr 1.5fr}
+.feat:nth-of-type(even) .ft{order:-1}
+.feat .ft{min-width:0}
+.feat h3{font-size:22px;margin-top:6px}
+.feat p{color:var(--muted);margin-top:8px}
+.ticks{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px}
+.ticks li{display:flex;gap:10px;font-size:14.5px}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:7px;background:var(--accs);color:var(--acc);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:2px}
+.dec{display:grid;grid-template-columns:.9fr 1.4fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.dec h3{font-size:18px}
+.dec p{color:var(--muted);font-size:14.5px}
+.dec .why{margin-top:6px;font-size:14px}
+.dec .why b{color:var(--ink)}
+.outs{display:flex;flex-wrap:wrap;gap:12px}
+.oc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;min-width:160px}
+.oc b{display:block;font-size:26px;color:var(--v);font-variant-numeric:tabular-nums}
+.oc span{font-size:13px;color:var(--muted)}
+.samp{font-size:12px;color:var(--muted);margin-top:10px}
+.ba{display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.ba div{padding:14px 18px;font-size:14.5px;border-top:1px solid var(--line)}
+.ba .h{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;border:0}
+.ba .b{color:var(--muted);text-decoration:line-through;text-decoration-color:#C9C5DE}
+.ba .a{font-weight:600}
+.end{margin-block:40px 24px;background:var(--ink);color:#fff;border-radius:32px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.end h2{font-size:clamp(24px,3vw,34px)}
+.end p{color:#C9CBE0;margin-top:6px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:40px;text-decoration:none;background:#fff;color:var(--ink)}
+.btn.o{background:transparent;color:#fff;border:1px solid #4A4D72}
+footer{padding-block:24px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;background:var(--accs);color:var(--acc)}
+@media (max-width:900px){.hero,.feat,.dec,.g2{grid-template-columns:1fr}.feat:nth-of-type(even){grid-template-columns:1fr}.feat:nth-of-type(even) .ft{order:0}.g3,.g4,.g5{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(3){border-left:0}.meta div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:520px){.g3,.g4,.g5{grid-template-columns:1fr}.ba{grid-template-columns:1fr}.ba .h:nth-child(2){display:none}.hstage{padding:18px}}
+/* genai dark stage */
+.stage.dk{background:radial-gradient(800px 500px at 80% 0%,#3B2E8F 0%,transparent 60%),linear-gradient(160deg,#1B1D3A,#0F1024);padding:32px 28px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.dkw{width:100%;background:#191B33;border:1px solid #2E3156;border-radius:18px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);color:#E6E6F5;font-size:12px}
+.dkbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #2A2D50;background:#15172D}
+.dkbar .lg{width:24px;height:24px;border-radius:8px;background:var(--v);display:grid;place-items:center;font-size:12px;color:#fff}
+.dkbar b{font-size:12.5px}
+.dkbar .srch{margin-left:auto;flex:0 1 180px;background:#22254A;border-radius:8px;padding:5px 10px;color:#8D90B8;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dkbar .av{width:24px;height:24px;border-radius:50%;background:#2E3156;display:grid;place-items:center;font-size:10px;font-weight:700;color:#B9AEFF}
+.dkb{display:grid;grid-template-columns:190px 1fr;min-height:440px}
+.dsb{background:#15172D;border-right:1px solid #2A2D50;padding:10px 8px;display:flex;flex-direction:column;gap:2px}
+.dsb small{font-size:9.5px;letter-spacing:1.2px;color:#7D80A8;padding:4px 8px 6px;font-weight:600}
+.dsb span{display:flex;align-items:center;gap:7px;font-size:10.5px;padding:6px 8px;border-radius:8px;color:#A4A7CA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dsb span i{flex:none;width:6px;height:6px;border-radius:2px;background:#3B3F6E}
+.dsb span.on{background:#2B2760;color:#fff;font-weight:600}
+.dsb span.on i{background:#B9AEFF}
+.dmn{padding:14px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.crumb{font-size:10.5px;color:#8D90B8}
+.dq{align-self:flex-end;background:var(--v);color:#fff;border-radius:14px 14px 4px 14px;padding:8px 12px;max-width:88%}
+.da{background:#22254A;border-radius:14px 14px 14px 4px;padding:10px 12px}
+.da b{color:#fff}
+.dsrc{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.dsrc span{font-size:10px;border:1px solid #3B3F6E;border-radius:6px;padding:2px 7px;color:#B5B8DA}
+.dfd{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #2E3156;border-radius:12px;background:#1D2040}
+.dfd div{min-width:0}
+.dfd b{display:block;font-size:11.5px;font-weight:600}
+.dfd small{display:block;font-size:10px;color:#8D90B8}
+.dot{flex:none;width:8px;height:8px;border-radius:50%}
+.dot.r{background:#FF7A85}.dot.y{background:#F5C451}.dot.g{background:#4FD18B}
+.bd{margin-left:auto;flex:none;font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:8px}
+.bd.r{background:#4A2232;color:#FF9AA3}.bd.y{background:#4A3B1C;color:#F5C451}.bd.g{background:#173D2C;color:#4FD18B}
+.dprog{display:flex;align-items:center;gap:10px;font-size:10.5px;color:#A4A7CA}
+.dprog div{flex:1;height:6px;border-radius:6px;background:#2E3156;overflow:hidden}
+.dprog i{display:block;height:100%;background:#B9AEFF}
+.dact{display:flex;gap:6px;flex-wrap:wrap}
+.dact span{font-size:10.5px;font-weight:600;padding:6px 11px;border-radius:9px;background:#2A2D50;color:#D8D9F0}
+.dact span.p{background:var(--v);color:#fff}
+.mocknote.dkn{color:#8D90B8;margin:0}
+@media (max-width:520px){.dkb{grid-template-columns:1fr}.dsb{display:none}.stage.dk{padding:18px}.dkbar .srch{display:none}}
+
+/* v4 */
+.qt2{padding:30px 32px;gap:22px}
+.qt2 .qm{font-size:64px}
+.qt2 blockquote{font-size:16.5px;line-height:1.65;max-width:62em}
+.qt2 .who{margin-top:16px}
+.story{margin-bottom:20px}
+.story p{max-width:52em}
+.journey{background:rgba(255,255,255,.8);border:1.5px solid #fff;border-radius:28px;padding:30px 32px 26px}
+.jh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.jh h3{font-size:22px}
+.jl{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.jl span{display:flex;align-items:center;gap:6px}
+.jl i{width:10px;height:10px;border-radius:50%;display:block}
+.jl .edu,.jy.edu .jd{background:#DCEBFF}.jl .work,.jy.work .jd{background:var(--vs)}.jl .award,.jy.award .jd{background:#FFF0CC}.jl .side,.jy.side .jd{background:#E3F4EA}
+.jl .edu{background:#5B8DEF}.jl .work{background:var(--v)}.jl .award{background:#E3A11B}.jl .side{background:var(--g)}
+.jt{list-style:none;margin:0;padding:112px 0 0;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));position:relative;overflow-x:auto}
+.jt::before{content:"";position:absolute;left:4%;right:4%;top:134px;height:4px;border-radius:4px;background:linear-gradient(90deg,#5B8DEF,var(--v) 45%,#E3A11B 70%,var(--g))}
+.jy{position:relative;display:flex;flex-direction:column;align-items:center;align-self:start;text-align:center;min-width:0;padding:0 4px}
+.jd{position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:20px;border:4px solid #fff;box-shadow:0 8px 18px -10px rgba(40,30,120,.5)}
+.jc{display:flex;flex-direction:column;gap:2px;margin-top:12px}
+.jy:nth-child(even) .jc{position:absolute;bottom:calc(100% + 10px);left:0;right:0;margin:0}
+.jc time{font-size:11.5px;font-weight:700;color:var(--v);letter-spacing:.3px}
+.jc b{font-size:13.5px;line-height:1.25}
+.jc span{font-size:12px;color:var(--muted);line-height:1.3}
+.jy.now .jd{background:var(--ink);color:#fff;font-size:18px}
+@media (max-width:880px){
+ .jt{grid-template-columns:1fr;padding:6px 0 0;overflow:visible}
+ .jt::before{left:22px;right:auto;top:10px;bottom:10px;width:4px;height:auto;background:linear-gradient(180deg,#5B8DEF,var(--v) 45%,#E3A11B 70%,var(--g))}
+ .jy{flex-direction:row;align-items:flex-start;text-align:left;gap:14px;padding:8px 0}
+ .jy .jc,.jy:nth-child(even) .jc{position:static;margin:2px 0 0}
+ .jd{flex:none}
+}
+.posts.three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
+.post{display:block;text-decoration:none;color:inherit;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 40px -28px rgba(40,30,120,.55);transition:transform .2s,box-shadow .2s}
+.post:hover{transform:translateY(-4px);box-shadow:0 26px 50px -26px rgba(40,30,120,.6)}
+.post img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:0;box-shadow:none}
+.pm{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.pm b{font-size:14.5px;line-height:1.35}
+.pm span{font-size:12.5px;font-weight:600;color:var(--v)}
+@media (max-width:640px){.posts.three{grid-template-columns:1fr 1fr}}
+
+/* memory real screens */
+.stage.mem{background:radial-gradient(circle at 30% 20%,#E3EAFF,#D6E0FF 45%,#E7E0FF);padding:32px 26px}
+.mshot{position:relative;width:100%;max-width:560px;padding-bottom:70px}
+.mwin{background:#fff;border-radius:16px;padding:7px;box-shadow:0 30px 60px -28px rgba(30,50,140,.55)}
+.mdots{display:flex;gap:5px;padding:3px 5px 7px}
+.mdots i{width:8px;height:8px;border-radius:50%;background:#DCE2F2}
+.mwin img{display:block;width:100%;border-radius:9px;border:1px solid #EEF0F3}
+.mph{position:absolute;right:-6px;bottom:0;width:30%;border-radius:22px;padding:4px;background:#16181D;box-shadow:0 26px 50px -20px rgba(20,30,80,.6)}
+.mph img{display:block;width:100%;border-radius:18px}
+.mtag{position:absolute;left:0;bottom:12px;font-size:12px;font-weight:600;color:#2853D9;background:#fff;border-radius:20px;padding:6px 12px;box-shadow:0 10px 20px -14px rgba(30,50,140,.6)}
+
+/* about highlights + button hovers */
+.story .lead2{font-size:clamp(18px,2vw,21px);line-height:1.7;color:var(--ink)}
+.story mark{background:linear-gradient(transparent 58%,#D9CFFF 0);color:inherit;font-weight:600;padding:0 2px}
+.story b{color:var(--ink);font-weight:600}
+.story b.vi{color:var(--v)}
+.kw{display:inline-block;font-size:.8em;font-weight:600;color:var(--v);background:var(--vs);border-radius:20px;padding:2px 11px;margin:2px 1px;vertical-align:1px;transition:background .2s,color .2s}
+.kw:hover{background:var(--v);color:#fff}
+.btn{transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+.btn.s:hover{background:#fff;color:var(--v);border-color:var(--v);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(110,85,232,.7)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(110,85,232,.8)}
+.btn:active,.more:active{transform:translateY(0) scale(.98)}
+.btn.s:focus-visible{border-color:var(--v)}
+.mail button{transition:background .2s,color .2s}
+.mail button:hover{background:var(--v);color:#fff}
+.tool{transition:transform .2s,border-color .2s,box-shadow .2s}
+.tool:hover{transform:translateY(-2px);border-color:var(--vs);box-shadow:0 12px 24px -16px rgba(110,85,232,.6)}
+.sk,.rec>div,.resp2 .rl>div{transition:transform .2s,box-shadow .2s}
+.sk:hover,.rec>div:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(60,45,150,.55)}
+nav .links a{transition:background .2s,color .2s}
+
+.hero h1{font-size:clamp(40px,5.2vw,62px);letter-spacing:-1.5px}
+.hero{grid-template-columns:.85fr 1.15fr}
+.hero .stage.dk{padding:28px 22px;align-items:center}
+.hero .dkw{width:900px;max-width:none;zoom:.6;flex:none}
+.hero .dkb{grid-template-columns:200px 1fr;min-height:540px}
+@media (max-width:1150px){.hero .dkw{zoom:.52}}
+@media (max-width:900px){.hero .dkw{zoom:.8}}
+@media (max-width:760px){.hero .dkw{zoom:.62}}
+@media (max-width:620px){.hero .dkw{width:100%;zoom:1}.hero .dkb{min-height:0}}
+.hero .mocknote{font-size:12px;text-align:center}
+.hero .dkw{font-size:12.5px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.stage.dk{border-radius:32px}
+.conf-note{display:flex;gap:12px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 18px;font-size:14.5px;color:var(--muted);margin-top:18px}
+.conf-note b{color:var(--ink)}
+.phase{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ph-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ph-h{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--v)}
+.ph-h i{flex:1;height:2px;background:linear-gradient(90deg,var(--v),transparent)}
+.tool{background:rgba(255,255,255,.88);border:1.5px solid #fff;border-radius:20px;padding:18px;min-width:0}
+.tool h3{font-size:16px}
+.tool p{font-size:13.5px;color:var(--muted);margin-top:6px}
+.tool .ic{width:36px;height:36px;border-radius:11px;background:var(--vs);color:var(--v);display:grid;place-items:center;font-size:16px;margin-bottom:10px}
+.plat{margin-top:16px;background:var(--ink);color:#fff;border-radius:22px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.plat b{font-size:17px}
+.plat span{color:#C9CBE0;font-size:14.5px}
+.pat{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center;padding-block:26px;border-top:1px solid var(--line)}
+.pat:nth-of-type(even) .pv{order:2}
+.pv{border-radius:24px;padding:24px;background:radial-gradient(600px 300px at 80% 0%,#3B2E8F 0%,transparent 60%),linear-gradient(160deg,#1B1D3A,#0F1024);min-width:0}
+.pvw{background:#191B33;border:1px solid #2E3156;border-radius:16px;padding:16px;color:#E6E6F5;font-size:13px;display:flex;flex-direction:column;gap:9px}
+.pvw .lab{font-size:10.5px;color:#8D90B8;letter-spacing:1px;font-weight:600}
+.fld{background:#22254A;border-radius:10px;padding:9px 12px;display:flex;justify-content:space-between;gap:10px}
+.fld span{color:#8D90B8}
+.draft{background:#fff;color:#14162D;border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.5}
+.draft b{display:block;font-size:13px;margin-bottom:4px}
+.draft i{display:block;height:7px;border-radius:4px;background:#E3DEFA;margin-top:6px;font-style:normal}
+.pbtn{display:flex;gap:6px;flex-wrap:wrap}
+.pbtn span{font-size:11px;font-weight:600;padding:6px 11px;border-radius:9px;background:#2A2D50;color:#D8D9F0}
+.pbtn span.p{background:var(--v);color:#fff}
+.fmt{display:flex;gap:8px}
+.fmt div{flex:1;background:#22254A;border-radius:12px;padding:12px;text-align:center;font-size:12px}
+.fmt div b{display:block;font-size:20px;margin-bottom:4px}
+.fmt div.on{background:#2B2760;outline:2px solid #B9AEFF}
+.pt h3{font-size:22px;margin-top:6px}
+.pt p{color:var(--muted);margin-top:8px}
+.prn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.prn .card b{display:block;font-size:13px;color:var(--v);font-weight:700}
+
+.evo{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch}
+.ev{background:rgba(255,255,255,.88);border:1.5px solid #fff;border-radius:24px;padding:24px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.ev.hi{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ev.hi p{color:#C9CBE0}.ev.hi .evn{color:#B9AEFF}.ev.hi .evt span{background:#2E3156;color:#D8D9F0}
+.evn{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--v)}
+.ev h3{font-size:19px}
+.ev p{font-size:14.5px;color:var(--muted)}
+.evt{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.evt span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:12px;background:var(--vs);color:var(--v)}
+.ev-ar{display:grid;place-items:center;font-size:24px;color:var(--v);font-weight:700}
+@media (max-width:900px){.evo{grid-template-columns:1fr}.ev-ar{transform:rotate(90deg);padding:2px 0}}
+@media (max-width:900px){.phase,.prn{grid-template-columns:1fr 1fr}.pat{grid-template-columns:1fr}.pat:nth-of-type(even) .pv{order:0}}
+@media (max-width:520px){.phase,.prn{grid-template-columns:1fr}}
+
+</style></head><body>
+<div class="wrap">
+<nav><a class="back" href="./">← Back to portfolio</a><span class="me">Jasdeep Singh · AI-Powered UX Designer</span></nav>
+
+<header class="hero">
+  <div>
+    <span class="pill">Case study · Enterprise GenAI · 🔒 Confidential</span>
+    <h1>A GenAI suite for <em style="color:var(--v)">consulting teams</em></h1>
+    <p class="lede">Eight AI tools that support consultants across a deal, from planning interviews to reviewing findings, brought together on one internal platform. I designed them to feel like one system, not eight separate products.</p>
+  </div>
+  <div class="stage dk" style="display:flex">
+        <div class="dkw">
+          <div class="dkbar"><span class="lg">✦</span><b>Consulting AI suite</b><span class="srch">Search tools and projects…</span><span class="av">JS</span></div>
+          <div class="dkb">
+            <div class="dsb"><small>TOOLS</small><span class=""><i></i>Interview Question Planner</span><span class=""><i></i>Engagement Kickoff Builder</span><span class=""><i></i>Transaction Pattern Explorer</span><span class=""><i></i>Growth Opportunity Finder</span><span class="on"><i></i>Deal Review Assistant</span><span class=""><i></i>Spend Analytics Explorer</span><span class=""><i></i>Company Valuation Assistant</span><span class=""><i></i>Divestment Insights Generator</span></div>
+            <div class="dmn">
+              <div class="crumb">Deal Review Assistant · Project Atlas</div>
+              <div class="dq">Which findings need a closer look before the summary?</div>
+              <div class="da"><p>I reviewed <b>42 findings</b> across 6 documents. <b>3 need your review</b> before the summary goes out.</p>
+                <div class="dsrc"><span>📄 Financials FY25</span><span>📄 Supplier list</span><span>+4</span></div></div>
+              <div class="dfd"><span class="dot r"></span><div><b>Revenue spike in one quarter</b><small>Only one source supports this</small></div><span class="bd r">Low · Review</span></div>
+              <div class="dfd"><span class="dot y"></span><div><b>Supplier concentration</b><small>Top 3 suppliers = 68% of spend</small></div><span class="bd y">Medium</span></div>
+              <div class="dfd"><span class="dot g"></span><div><b>Working capital trend</b><small>Matches 4 sources</small></div><span class="bd g">High</span></div>
+              <div class="dprog"><span>Review progress</span><div><i style="width:40%"></i></div><span>2 of 5</span></div>
+              <div class="dact"><span class="p">Mark reviewed</span><span>Ask a follow-up</span><span>Export summary</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="mocknote dkn">Illustrative mock-up. The real screens are confidential.</div></div>
+</header>
+<dl class="meta"><div><dt>Role</dt><dd>UX designer, guided by my counselor</dd></div><div><dt>Scope</dt><dd>8 tools + platform integration</dd></div><div><dt>Tools</dt><dd>Figma, FigJam, the firm's design system, Figma Make</dd></div><div><dt>Recognition</dt><dd>Spot Award · User Recognition</dd></div></dl>
+<div class="conf-note">🔒 <span><b>About the visuals.</b> These are internal enterprise tools, so I can't share real screens or data. Every mock-up here is illustrative: it shows the design patterns, not the product. I'm happy to walk through the full process on a call.</span></div>
+
+<section>
+  <div class="sh"><div class="k">The challenge</div><h2>Fast AI drafts are useless if experts can't trust them</h2><p>Consultants spend hours on repeatable first drafts: interview guides, project charters, analysis summaries. AI can write those drafts in seconds, but in high-stakes deal work, a confident wrong answer is worse than no answer.</p></div>
+  <div class="quote">How might we help consulting teams <em>move faster with AI</em> while staying sure of every finding they share with a client?</div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Who it's for</div><h2>Experts who are accountable for every word</h2></div>
+  <div class="g3">
+    <div class="card"><span class="chip">Consultants</span><h3 style="margin-top:12px">Need a strong first draft</h3><p>Want to skip the blank page and spend their time on thinking, not formatting.</p></div>
+    <div class="card"><span class="chip">Reviewers</span><h3 style="margin-top:12px">Need to know what to check</h3><p>Can't re-read everything. Need the risky findings to stand out.</p></div>
+    <div class="card"><span class="chip">Client teams</span><h3 style="margin-top:12px">Need client-ready output</h3><p>Need summaries in the formats they already send, without reworking them.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">What I designed</div><h2>Eight tools across a deal</h2><p>Each tool serves one phase of an engagement. Together they live on one internal platform.</p></div>
+  <div class="phase"><div class="ph-col"><div class="ph-h">Plan<i></i></div><div class="tool"><div class="ic">🗒</div><h3>Interview Question Planner</h3><p>Builds structured interview questions from the project context and the client's industry.</p></div><div class="tool"><div class="ic">🚀</div><h3>Engagement Kickoff Builder</h3><p>Turns a guided set of inputs into a project charter, with inline review states.</p></div></div><div class="ph-col"><div class="ph-h">Analyse<i></i></div><div class="tool"><div class="ic">📈</div><h3>Transaction Pattern Explorer</h3><p>Surfaces patterns in financial transaction data for diligence work.</p></div><div class="tool"><div class="ic">🧾</div><h3>Spend Analytics Explorer</h3><p>Breaks down company spend so teams can spot where money goes.</p></div><div class="tool"><div class="ic">🏢</div><h3>Company Valuation Assistant</h3><p>Supports valuing private companies with structured inputs and checks.</p></div></div><div class="ph-col"><div class="ph-h">Create value<i></i></div><div class="tool"><div class="ic">💡</div><h3>Growth Opportunity Finder</h3><p>Helps identify and document value-creation opportunities during a deal.</p></div><div class="tool"><div class="ic">🔀</div><h3>Divestment Insights Generator</h3><p>Builds insights for selling or separating part of a business.</p></div></div><div class="ph-col"><div class="ph-h">Review<i></i></div><div class="tool"><div class="ic">✅</div><h3>Deal Review Assistant</h3><p>A conversational Q&A to review findings and export client-ready summaries.</p></div></div></div>
+  <div class="plat"><b>One platform</b><span>All eight tools integrated into a single internal platform, with the same navigation, patterns and review flow.</span></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">How the work evolved</div><h2>Designed by hand. Scaled with AI.</h2><p>The suite grew over time, and so did the way I worked on it.</p></div>
+  <div class="evo">
+    <div class="ev"><span class="evn">Phase 1</span><h3>Eight tools, designed by hand</h3><p>I designed every tool in Figma and FigJam, on the firm's design system. Flows, states and screens were all hand-crafted, with shared components so eight tools felt like one.</p>
+      <div class="evt"><span>Figma</span><span>FigJam</span><span>Firm design system</span></div></div>
+    <div class="ev-ar">→</div>
+    <div class="ev hi"><span class="evn">Phase 2</span><h3>One platform, built with AI</h3><p>When the tools came together on one internal platform, I used Figma Make to build the integration as a working prototype. Teams could click through the real flow, not just look at static screens.</p>
+      <div class="evt"><span>Figma Make</span><span>Working prototype</span></div></div>
+    <div class="ev-ar">→</div>
+    <div class="ev"><span class="evn">Now</span><h3>AI in every new app</h3><p>New tools start with AI-assisted exploration and prototyping. The craft and the review stay mine.</p>
+      <div class="evt"><span>AI-assisted</span><span>Human-reviewed</span></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">One system, not eight products</div><h2>Four patterns every tool shares</h2><p>Instead of designing eight separate tools, I designed a small set of patterns and used them everywhere. Learn one tool, and you know them all.</p></div>
+  <div class="pat"><div class="pv"><div class="pvw"><span class="lab">ENGAGEMENT KICKOFF BUILDER</span>
+   <div class="fld"><span>Client industry</span>Retail</div><div class="fld"><span>Deal type</span>Acquisition</div><div class="fld"><span>Timeline</span>6 weeks</div>
+   <div class="draft"><b>Draft · Project charter</b>Objectives, scope and key questions for the first two weeks…<i></i><i style="width:80%"></i></div>
+   <div class="pbtn"><span class="p">Edit draft</span><span>↻ Regenerate scope</span></div></div></div><div class="pt"><span class="num">Pattern 1</span><h3>Guided inputs, ready-to-edit drafts</h3><p>Consultants don't start from an empty prompt. They answer a few structured questions, and the tool returns a first draft they can edit.</p><ul class="ticks"><li>Plain fields instead of a blank prompt</li><li>The draft is always editable, never final</li><li>Regenerate one section, not the whole thing</li></ul></div></div><div class="pat"><div class="pv"><div class="pvw"><span class="lab">DEAL REVIEW ASSISTANT</span>
+   <div class="dq" style="max-width:90%">Which suppliers make up most of the spend?</div>
+   <div class="da">The top 3 suppliers account for <b>68%</b> of spend.<div class="dsrc"><span>📄 Supplier list</span><span>📄 Spend FY25</span></div></div>
+   <div class="pbtn"><span>Show the breakdown</span><span>Compare to last year</span></div></div></div><div class="pt"><span class="num">Pattern 2</span><h3>Conversational Q&A over findings</h3><p>Teams ask questions in plain words and get answers that point back to the documents they came from.</p><ul class="ticks"><li>Every answer shows its sources</li><li>Follow-up questions keep the context</li><li>&quot;I couldn&#x27;t find this&quot; instead of a guess</li></ul></div></div><div class="pat"><div class="pv"><div class="pvw"><span class="lab">FINDINGS · 3 OF 42 NEED REVIEW</span>
+   <div class="dfd"><span class="dot r"></span><div><b>Revenue spike in one quarter</b><small>Only one source supports this</small></div><span class="bd r">Low · Review</span></div>
+   <div class="dfd"><span class="dot y"></span><div><b>Supplier concentration</b><small>Top 3 suppliers = 68% of spend</small></div><span class="bd y">Medium</span></div>
+   <div class="dfd"><span class="dot g"></span><div><b>Working capital trend</b><small>Matches 4 sources</small></div><span class="bd g">High</span></div>
+   <div class="dprog"><span>Reviewed</span><div><i style="width:40%"></i></div><span>2 of 5</span></div></div></div><div class="pt"><span class="num">Pattern 3</span><h3>Inline confidence and review states</h3><p>AI output arrives with a confidence level. Low-confidence findings are flagged, so reviewers know exactly where to look first.</p><ul class="ticks"><li>High, Medium and Low, never colour alone</li><li>Low confidence asks for a review</li><li>Progress shows what&#x27;s still unchecked</li></ul></div></div><div class="pat"><div class="pv"><div class="pvw"><span class="lab">EXPORT REVIEW SUMMARY</span>
+   <div class="fmt"><div class="on"><b>📊</b>Slides</div><div><b>📄</b>Document</div><div><b>📋</b>Table</div></div>
+   <div class="fld"><span>Includes</span>39 reviewed findings</div>
+   <div class="pbtn"><span class="p">Export summary</span><span>Preview</span></div></div></div><div class="pt"><span class="num">Pattern 4</span><h3>Client-ready export</h3><p>Once findings are reviewed, the summary exports in the formats consultants already send to clients.</p><ul class="ticks"><li>Only reviewed findings go into the export</li><li>Familiar formats, no reformatting</li><li>Who reviewed what stays on record</li></ul></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Design principles</div><h2>The rules behind the patterns</h2></div>
+  <div class="prn">
+    <div class="card"><b>01</b><h3 style="margin-top:6px">Drafts, not decisions</h3><p>AI writes the first version. People own the final one.</p></div>
+    <div class="card"><b>02</b><h3 style="margin-top:6px">Show the source</h3><p>Every finding points back to where it came from.</p></div>
+    <div class="card"><b>03</b><h3 style="margin-top:6px">Make doubt visible</h3><p>Confidence levels tell reviewers where to look first.</p></div>
+    <div class="card"><b>04</b><h3 style="margin-top:6px">Consistent everywhere</h3><p>Same patterns across all eight tools.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Outcome</div><h2>Where it landed</h2></div>
+  <div class="outs"><div class="oc"><b>~60%</b><span>faster first drafts</span></div><div class="oc"><b>8 tools</b><span>one consistent system</span></div><div class="oc"><b>★</b><span>Spot Award · Sep 2024</span></div><div class="oc"><b>♥</b><span>User Recognition · Mar 2026</span></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">What I learned</div><h2>Trust is the real feature</h2></div>
+  <div class="g3">
+    <div class="card"><h3>Experts trust AI they can check</h3><p>Sources and confidence mattered more to users than speed alone.</p></div>
+    <div class="card"><h3>Patterns scale, screens don't</h3><p>A few shared patterns let eight tools feel like one product.</p></div>
+    <div class="card"><h3>Review is part of the flow</h3><p>When review is a built-in step, people actually do it.</p></div>
+  </div>
+</section>
+<div class="end"><div><h2>Thanks for reading.</h2><p>Next case study: galla: billing designed for the counter</p></div>
+<div class="btns"><a class="btn" href="galla.html">Read next →</a><a class="btn o" href="./#contact">Get in touch</a></div></div>
+
+<footer><span>© 2026 Jasdeep Singh</span><span>AI-Powered UX Designer</span></footer>
+</div>
+<script>
+try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
+function toTop(){if(!location.hash||location.hash==='#'){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}}
+toTop();document.addEventListener('DOMContentLoaded',toTop);window.addEventListener('load',function(){toTop();setTimeout(toTop,50)});window.addEventListener('pageshow',toTop);
+</script></body></html>

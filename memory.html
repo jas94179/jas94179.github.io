@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Memory Case Study</title>
+<meta name="description" content="Memory, in your control: case study by Jasdeep Singh">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Same system as the portfolio (lavender, Poppins, violet), with the project's own accent for its designs. */
+:root{--ink:#14162D;--muted:#5A5E80;--v:#6E55E8;--vs:#ECE8FF;--g:#1F9D63;--line:#E4E1F3;--bg:#F3F0FF;--bg2:#E9F0FF;
+--acc:#2853D9;--acc2:#8A4206;--accs:#EAF0FF;
+--f:'Poppins',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:light;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--f);color:var(--ink);background:var(--bg);background-image:radial-gradient(1100px 700px at 85% -5%,#E2DAFF 0%,transparent 60%),radial-gradient(900px 600px at -10% 30%,var(--bg2) 0%,transparent 60%),linear-gradient(180deg,#F6F3FF,#F1EEFD 50%,#F6F4FF);line-height:1.65;font-size:16px}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--v);outline-offset:3px;border-radius:8px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+nav{padding-block:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+nav .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;background:rgba(255,255,255,.85);border:1px solid #fff;padding:9px 16px;border-radius:30px}
+nav .back:hover{color:var(--v)}
+nav .me{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--v);background:rgba(255,255,255,.85);border:1px solid #fff;padding:7px 14px;border-radius:30px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding-block:28px 40px}
+.hero h1{font-size:clamp(44px,7vw,80px);letter-spacing:-2px;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .sub{font-size:clamp(19px,2.2vw,24px);font-weight:600;margin-top:12px;line-height:1.35}
+.hero .lede{color:var(--muted);margin-top:16px;max-width:34em}
+.hstage{border-radius:32px;padding:30px;min-width:0;display:grid;place-items:center}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.8);border:1.5px solid #fff;border-radius:24px;overflow:hidden}
+.meta div{padding:16px 20px;border-left:1px solid var(--line);min-width:0}
+.meta div:first-child{border:0}
+.meta dt{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:2px 0 0;font-weight:600;font-size:14.5px}
+section{padding-block:56px}
+.k{font-size:13px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--v);margin-bottom:10px}
+.sh{margin-bottom:28px;max-width:44em}
+.sh h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.8px}
+.sh p{color:var(--muted);margin-top:12px}
+.card{background:rgba(255,255,255,.82);border:1.5px solid #fff;border-radius:24px;padding:24px;min-width:0}
+.card h3{font-size:18px}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.num{font-size:13px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat b{display:block;font-size:clamp(30px,4vw,42px);letter-spacing:-1px;line-height:1.1;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px}
+.quote{margin-top:28px;background:var(--ink);color:#fff;border-radius:28px;padding:30px 34px;font-size:clamp(19px,2.4vw,26px);font-weight:500;line-height:1.4}
+.quote em{font-style:normal;color:#B9AEFF}
+.tbl{overflow-x:auto;background:#fff;border-radius:22px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;font-weight:600}
+tr:last-child td{border:0}
+tr.us td{background:var(--accs);font-weight:600}
+td.y{color:var(--g);font-weight:600} td.n{color:#9A9DB8}
+.shots{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 200px;scroll-snap-align:start}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.45}
+figcaption b{display:block;color:var(--ink);font-weight:600}
+.phone{position:relative;border-radius:28px;padding:6px;background:var(--ink);box-shadow:0 24px 44px -24px rgba(40,30,120,.55)}
+.phone::after,.gph .p::after{content:"";position:absolute;top:14px;left:50%;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:#05080a;box-shadow:inset 0 0 0 2px #1b1f24;z-index:2}
+.phone img{display:block;width:100%;border-radius:22px}
+.win{background:#fff;border-radius:18px;padding:8px;box-shadow:0 30px 60px -34px rgba(40,30,120,.55);border:1px solid var(--line)}
+.win .dots{display:flex;gap:6px;padding:4px 6px 8px}
+.win .dots i{width:9px;height:9px;border-radius:50%;background:#E4E1F3}
+.win img{display:block;width:100%;border-radius:10px;border:1px solid #EEF0F3}
+.feat{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;padding-block:26px;border-top:1px solid var(--line)}
+.feat:nth-of-type(even){grid-template-columns:1fr 1.5fr}
+.feat:nth-of-type(even) .ft{order:-1}
+.feat .ft{min-width:0}
+.feat h3{font-size:22px;margin-top:6px}
+.feat p{color:var(--muted);margin-top:8px}
+.ticks{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px}
+.ticks li{display:flex;gap:10px;font-size:14.5px}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:7px;background:var(--accs);color:var(--acc);display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:2px}
+.dec{display:grid;grid-template-columns:.9fr 1.4fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.dec h3{font-size:18px}
+.dec p{color:var(--muted);font-size:14.5px}
+.dec .why{margin-top:6px;font-size:14px}
+.dec .why b{color:var(--ink)}
+.outs{display:flex;flex-wrap:wrap;gap:12px}
+.oc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;min-width:160px}
+.oc b{display:block;font-size:26px;color:var(--v);font-variant-numeric:tabular-nums}
+.oc span{font-size:13px;color:var(--muted)}
+.samp{font-size:12px;color:var(--muted);margin-top:10px}
+.ba{display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.ba div{padding:14px 18px;font-size:14.5px;border-top:1px solid var(--line)}
+.ba .h{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:#F8F7FD;border:0}
+.ba .b{color:var(--muted);text-decoration:line-through;text-decoration-color:#C9C5DE}
+.ba .a{font-weight:600}
+.end{margin-block:40px 24px;background:var(--ink);color:#fff;border-radius:32px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.end h2{font-size:clamp(24px,3vw,34px)}
+.end p{color:#C9CBE0;margin-top:6px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:40px;text-decoration:none;background:#fff;color:var(--ink)}
+.btn.o{background:transparent;color:#fff;border:1px solid #4A4D72}
+footer{padding-block:24px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;background:var(--accs);color:var(--acc)}
+@media (max-width:900px){.hero,.feat,.dec,.g2{grid-template-columns:1fr}.feat:nth-of-type(even){grid-template-columns:1fr}.feat:nth-of-type(even) .ft{order:0}.g3,.g4,.g5{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(3){border-left:0}.meta div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:520px){.g3,.g4,.g5{grid-template-columns:1fr}.ba{grid-template-columns:1fr}.ba .h:nth-child(2){display:none}.hstage{padding:18px}}
+
+.convo{background:#fff;border-radius:22px;border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 60px -40px rgba(40,30,120,.5)}
+.convo .h{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.convo .live{margin-left:auto;color:#A1281E;font-weight:600;font-size:12px}
+.convo .b{padding:22px;display:flex;flex-direction:column;gap:12px;font-size:15px}
+.cu{align-self:flex-end;background:#F1F3F6;border-radius:18px 18px 6px 18px;padding:10px 14px;max-width:80%}
+.ca mark{background:#FBE3E1;padding:1px 4px;border-radius:5px}
+.cn{font-size:12.5px;color:#A1281E}
+.hmw{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.hmw div{border:1.5px dashed #C9C5DE;border-radius:16px;padding:14px 16px;font-size:14.5px;color:var(--muted)}
+.hmw b{color:var(--acc)}
+.bars{display:flex;flex-direction:column;gap:12px}
+.br{display:grid;grid-template-columns:100px 1fr 34px;gap:12px;align-items:center;font-size:14px}
+.br .t{height:12px;border-radius:10px;background:#ECEAF6;overflow:hidden}
+.br .t i{display:block;height:100%;background:#B9B4D6;border-radius:10px}
+.br.me .t i{background:var(--acc)}
+.br.me span:first-child{font-weight:700}
+.br .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.big0{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:28px 34px;margin-top:16px}
+.big0 b{font-size:clamp(80px,12vw,130px);line-height:.85;letter-spacing:-4px}
+.big0 p{font-size:clamp(18px,2.2vw,24px);font-weight:500}
+.big0 small{display:block;color:#A9ACC8;font-size:12px;margin-top:6px;font-weight:400}
+.q{background:#fff;border-radius:18px 18px 18px 6px;padding:16px 18px;font-size:15px;border:1px solid var(--line)}
+.q span{display:block;font-size:12px;color:var(--v);font-weight:600;margin-top:8px}
+.persona .av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;font-size:18px}
+.persona .qt{background:#F6F4FF;border-radius:14px;padding:10px 14px;margin-top:14px;font-size:14px;color:var(--ink)}
+.persona dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13.5px;margin:14px 0 0}
+.persona dt{color:var(--muted)} .persona dd{margin:0;font-weight:600}
+.pr{background:var(--ink);color:#fff;border-radius:20px;padding:18px;min-height:150px;display:flex;flex-direction:column;gap:6px}
+.pr .k2{font-size:12px;color:#A9ACC8}
+.pr h4{margin-top:auto;font-size:16px}
+.pr p{font-size:13px;color:#C9CBE0}
+.phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sw{display:flex;align-items:center;gap:12px}
+.sw i{width:46px;height:46px;border-radius:12px;flex:none}
+.task b{display:block;font-size:30px;color:var(--acc)}
+@media (max-width:900px){.phones{grid-template-columns:1fr 1fr}.hmw{grid-template-columns:1fr}.big0{grid-template-columns:1fr;gap:8px}}
+
+</style></head><body>
+<div class="wrap">
+<nav><a class="back" href="./">← Back to portfolio</a><span class="me">Jasdeep Singh · AI-Powered UX Designer</span></nav>
+
+<header class="hero">
+  <div>
+    <span class="pill">Case study · AI experience · Self-initiated</span>
+    <h1>Memory, <em>in your control.</em></h1>
+    <p class="lede">Designing how people see, fix and limit what an AI assistant remembers about them, so personalisation feels helpful instead of unsettling.</p>
+  </div>
+  <div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/00.jpg" alt="A memory saved in the conversation, with Undo and View"></div>
+</header>
+<dl class="meta"><div><dt>Role</dt><dd>Research, UX, AI experience, UI, prototyping</dd></div><div><dt>Timeline</dt><dd>4 weeks, part time</dd></div><div><dt>Platforms</dt><dd>Desktop web and mobile</dd></div><div><dt>Tools</dt><dd>Figma, Figma Make, Copilot, Miro</dd></div></dl>
+
+<section>
+  <div class="g2" style="align-items:center">
+    <div class="sh" style="margin:0"><div class="k">The problem</div><h2>One moment explains the whole problem</h2><p>Priya asked for help with a leave email because her mother was in hospital. Two weeks later, sharing her screen in a meeting, she asked for lunch ideas.</p></div>
+    <div class="convo"><div class="h">Team sync · Priya is presenting<span class="live">● Sharing with 8 people</span></div>
+      <div class="b"><div class="cu">Any good lunch spots near the office?</div><div class="ca">Since <mark>your mother has been unwell</mark>, here are some places near the hospital…</div><div class="cn">Memory used: saved 14 days ago, without asking</div></div></div>
+  </div>
+  <div class="quote">People can't see, predict or fix what their AI assistant remembers, so personalisation feels <em>unpredictable</em>, and sometimes exposes private details at the worst moment.</div>
+  <div class="hmw"><div><b>How might we</b> make every save visible without interrupting?</div><div><b>How might we</b> protect sensitive details by default?</div><div><b>How might we</b> trace a strange answer to its memory?</div><div><b>How might we</b> keep work and personal apart?</div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Research</div><h2>Everyone has a memory page. Nobody handles the moments that hurt.</h2><p>I audited how four popular AI assistants handle memory, and reviewed public user reports and help docs.</p></div>
+  <div class="g4"><div class="card stat"><b>4</b><span>assistants audited</span></div><div class="card stat"><b>9</b><span>capabilities compared</span></div><div class="card stat"><b>20+</b><span>sources reviewed</span></div><div class="card stat"><b>6</b><span>themes found</span></div></div>
+  <div style="display:grid;gap:16px;margin-top:16px">
+    <div class="card"><h3>Memory capabilities covered</h3><p>Out of 9. Partial support counts as half.</p>
+      <div class="bars" style="margin-top:18px"><div class="br"><span>ChatGPT</span><div class="t"><i style="width:39%"></i></div><span class="v">3.5</span></div><div class="br"><span>Gemini</span><div class="t"><i style="width:33%"></i></div><span class="v">3</span></div><div class="br"><span>Copilot</span><div class="t"><i style="width:33%"></i></div><span class="v">3</span></div><div class="br"><span>Claude</span><div class="t"><i style="width:67%"></i></div><span class="v">6</span></div><div class="br me"><span>This design</span><div class="t"><i style="width:100%"></i></div><span class="v">9</span></div></div></div>
+    <div class="tbl"><table><thead><tr><th>Capability</th><th>ChatGPT</th><th>Gemini</th><th>Copilot</th><th>Claude</th><th>This design</th></tr></thead><tbody><tr><td>Notice when something is saved</td><td class="y">Yes</td><td class="">Unclear</td><td class="y">Yes</td><td class="">Partly</td><td style="background:var(--accs);color:var(--acc);font-weight:600">With undo</td></tr><tr><td>Edit a memory directly</td><td class="">Via chat</td><td class="">Partly</td><td class="">Limited</td><td class="y">Yes</td><td style="background:var(--accs);color:var(--acc);font-weight:600">In place</td></tr><tr><td>Separate memory by context</td><td class="n">No</td><td class="n">No</td><td class="">Work only</td><td class="">Per project</td><td style="background:var(--accs);color:var(--acc);font-weight:600">3 spaces</td></tr><tr><td>Ask before saving sensitive details</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="">Avoids some</td><td style="background:var(--accs);color:var(--acc);font-weight:600">Always</td></tr><tr><td>Show which memory shaped an answer</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="">Citations</td><td style="background:var(--accs);color:var(--acc);font-weight:600">With fix</td></tr><tr><td>Memories that expire</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td style="background:var(--accs);color:var(--acc);font-weight:600">Yes</td></tr><tr><td>Protection while screen sharing</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td style="background:var(--accs);color:var(--acc);font-weight:600">Presenting mode</td></tr></tbody></table></div>
+  </div>
+  <div class="big0"><b>0</b><p>of four assistants protect you while you share your screen.<small>Audit of ChatGPT, Gemini, Microsoft 365 Copilot and Claude, October 2026</small></p></div>
+  <div class="g3" style="margin-top:16px"><div class="q">"I didn&#x27;t mind it knowing. I minded not knowing it knew."<span>Memory is invisible</span></div><div class="q">"It kept suggesting veg recipes. I mentioned a vegetarian friend once."<span>Wrong memories stick</span></div><div class="q">"I told it to forget. It said OK. I don&#x27;t believe it did."<span>Forgetting doesn&#x27;t feel real</span></div><div class="q">"Work and personal shouldn&#x27;t mix. I share my screen all day."<span>Context collapse</span></div><div class="q">"Where would that even be? Settings? Privacy? Account?"<span>Control is buried</span></div><div class="q">"Helpful, but creepy. Like someone taking notes on me."<span>Surprise feels like surveillance</span></div></div>
+  <p class="samp">Composite quotes representing themes in public user reports and reviews. Not verbatim.</p>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Synthesis</div><h2>Every feature traces back to a real problem</h2></div>
+  <div class="g5"><div class="card" style="padding:18px"><span class="num">Insight 1</span><h3 style="font-size:16px;margin-top:6px">It&#x27;s not memory. It&#x27;s not knowing.</h3><p style="font-size:13.5px">Being remembered is fine when you know.</p><p style="font-size:13px;color:var(--acc);font-weight:600;margin-top:10px">→ Every save visible</p></div><div class="card" style="padding:18px"><span class="num">Insight 2</span><h3 style="font-size:16px;margin-top:6px">Sensitivity follows a pattern</h3><p style="font-size:13.5px">Health, money, relationships, beliefs, jobs.</p><p style="font-size:13px;color:var(--acc);font-weight:600;margin-top:10px">→ Ask first</p></div><div class="card" style="padding:18px"><span class="num">Insight 3</span><h3 style="font-size:16px;margin-top:6px">Wrong answers are dead ends</h3><p style="font-size:13.5px">No way to trace them to a memory.</p><p style="font-size:13px;color:var(--acc);font-weight:600;margin-top:10px">→ Used memories</p></div><div class="card" style="padding:18px"><span class="num">Insight 4</span><h3 style="font-size:16px;margin-top:6px">Forgetting must feel final</h3><p style="font-size:13.5px">&quot;OK, I&#x27;ll forget&quot; isn&#x27;t believed.</p><p style="font-size:13px;color:var(--acc);font-weight:600;margin-top:10px">→ Named proof</p></div><div class="card" style="padding:18px"><span class="num">Insight 5</span><h3 style="font-size:16px;margin-top:6px">Settings are a last resort</h3><p style="font-size:13.5px">Few visit a memory page unprompted.</p><p style="font-size:13px;color:var(--acc);font-weight:600;margin-top:10px">→ Control in chat</p></div></div>
+  <div class="g5" style="margin-top:12px"><div class="pr"><span class="k2">Principle 1</span><h4>No silent saves</h4><p>Visible, undoable in one tap.</p></div><div class="pr"><span class="k2">Principle 2</span><h4>Ask before the sensitive</h4><p>A clear yes, every time.</p></div><div class="pr"><span class="k2">Principle 3</span><h4>Show your working</h4><p>Memory used? Say so.</p></div><div class="pr"><span class="k2">Principle 4</span><h4>Forgetting is final</h4><p>As easy as saving, with proof.</p></div><div class="pr"><span class="k2">Principle 5</span><h4>Context stays put</h4><p>Work at work. Personal stays personal.</p></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">People</div><h2>Three people, three levels of trust</h2></div>
+  <div class="g3"><div class="card persona"><div style="display:flex;gap:14px;align-items:center"><span class="av" style="background:#2853D9">PS</span><div><h3>Priya, 28</h3><span style="font-size:13px;color:var(--muted)">Product analyst, Bengaluru</span></div></div><div class="qt">"I want it to know my work. Not my life, in front of my team."</div><dl><dt>Goal</dt><dd>Help without repeating context</dd><dt>Fear</dt><dd>Personal details at work</dd></dl></div><div class="card persona"><div style="display:flex;gap:14px;align-items:center"><span class="av" style="background:#6E55E8">AR</span><div><h3>Arjun, 21</h3><span style="font-size:13px;color:var(--muted)">Engineering student, Jalandhar</span></div></div><div class="qt">"I love that it remembers my syllabus. I never thought about what else."</div><dl><dt>Goal</dt><dd>A study partner that knows him</dd><dt>Fear</dt><dd>Family seeing personal replies</dd></dl></div><div class="card persona"><div style="display:flex;gap:14px;align-items:center"><span class="av" style="background:#1F9D63">MI</span><div><h3>Meera, 47</h3><span style="font-size:13px;color:var(--muted)">School administrator, Pune</span></div></div><div class="qt">"If I don&#x27;t know where my information goes, I&#x27;d rather not use it."</div><dl><dt>Goal</dt><dd>Help with letters, no worries</dd><dt>Fear</dt><dd>Can&#x27;t find the controls</dd></dl></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Solution</div><h2>Control lives where memory happens: in the chat</h2><p>18 screens across desktop and mobile. The ten key moments:</p></div>
+  <div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/01.jpg" alt="Saved to memory, with Undo"></div><div class="ft"><span class="num">01 / 10</span><h3>Saved to memory, with Undo</h3><p>A quiet note says exactly what was remembered, and where it went.</p><ul class="ticks"><li>Inline, so the conversation keeps flowing</li><li>Undo and View right there</li><li>The space tag shows a wrong category at once</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/02.jpg" alt="Ask first, after helping"></div><div class="ft"><span class="num">02 / 10</span><h3>Ask first, after helping</h3><p>Nothing sensitive is saved without a clear yes. The task always comes first.</p><ul class="ticks"><li>&quot;Don&#x27;t remember&quot; is the primary choice</li><li>A 30-day option for temporary situations</li><li>Amber means sensitive, everywhere</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/04.jpg" alt="Answers show their working"></div><div class="ft"><span class="num">03 / 10</span><h3>Answers show their working</h3><p>See which memories shaped a reply, and fix them where the problem appeared.</p><ul class="ticks"><li>&quot;I noticed this&quot; vs &quot;You asked me to remember&quot;</li><li>Edit and Forget in place</li><li>Answer without memory, to compare</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/06.jpg" alt="When memories disagree, ask once"></div><div class="ft"><span class="num">04 / 10</span><h3>When memories disagree, ask once</h3><p>Two cities for &quot;home&quot;? It checks, shows both sources, and updates itself.</p><ul class="ticks"><li>Newer source chosen by default</li><li>&quot;Just this once&quot; leaves memory alone</li><li>The old memory goes to Recently forgotten</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/07.jpg" alt="Presenting mode"></div><div class="ft"><span class="num">05 / 10</span><h3>Presenting mode</h3><p>One question when screen sharing starts: exactly what stays and what hides.</p><ul class="ticks"><li>Personal memories hidden while sharing</li><li>A banner keeps the mode visible</li><li>&quot;Every time&quot; becomes a preference</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/08.jpg" alt="Private chat"></div><div class="ft"><span class="num">06 / 10</span><h3>Private chat</h3><p>No memories used, nothing saved, not in history. Said plainly, every time.</p><ul class="ticks"><li>A distinct header, never a guess</li><li>Deletion timing stated upfront</li><li>One tap to leave</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/09.jpg" alt="Everything remembered, organised"></div><div class="ft"><span class="num">07 / 10</span><h3>Everything remembered, organised</h3><p>For occasional review. Spaces with counts show the shape of what&#x27;s stored.</p><ul class="ticks"><li>Work, Personal and Preferences tabs</li><li>Sensitive and expiry badges</li><li>Plain-language settings beside the list</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/10.jpg" alt="Edit, don&#x27;t just delete"></div><div class="ft"><span class="num">08 / 10</span><h3>Edit, don&#x27;t just delete</h3><p>&quot;Is vegetarian&quot; becomes &quot;My friend Riya is vegetarian&quot;. The useful part stays.</p><ul class="ticks"><li>Old wording visible while editing</li><li>Move between spaces</li><li>Choose when it&#x27;s forgotten</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/11.jpg" alt="Is this still true?"></div><div class="ft"><span class="num">09 / 10</span><h3>Is this still true?</h3><p>Memories unused for 90 days, reviewed one at a time.</p><ul class="ticks"><li>Forget, Edit or Still true</li><li>Progress always visible</li><li>Finish later, any time</li></ul></div></div><div class="feat"><div class="win"><div class="dots"><i></i><i></i><i></i></div><img src="cs/memory/12.jpg" alt="Forgetting that feels final"></div><div class="ft"><span class="num">10 / 10</span><h3>Forgetting that feels final</h3><p>Names the memory, confirms it&#x27;s unused everywhere, gives a restore date.</p><ul class="ticks"><li>7-day restore window</li><li>Recently forgotten list with dates</li><li>Typed confirmation to forget everything</li></ul></div></div>
+  <div style="margin-top:36px"><div class="k">On mobile</div>
+  <div class="phones"><div class="phone"><img src="cs/memory/13.jpg" alt="Mobile screen"></div><div class="phone"><img src="cs/memory/14.jpg" alt="Mobile screen"></div><div class="phone"><img src="cs/memory/15.jpg" alt="Mobile screen"></div><div class="phone"><img src="cs/memory/16.jpg" alt="Mobile screen"></div></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Iteration</div><h2>What changed from wireframe to final</h2></div>
+  <div class="ba"><div class="h">Before</div><div class="h">After</div>
+  <div class="b">Ask-first was a modal, before the answer</div><div class="a">Inline, after the answer. Help is never blocked.</div><div class="b">&quot;Remember&quot; was the primary button</div><div class="a">&quot;Don&#x27;t remember&quot; is primary. Safe is easiest.</div><div class="b">Used memories always expanded</div><div class="a">A small link. Transparency on demand.</div><div class="b">A plain &quot;Deleted&quot; toast</div><div class="a">Named memory, restore date, proof.</div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Design system</div><h2>One colour, one meaning</h2><p>Quiet ink and white, so memory moments stand out the instant they appear.</p></div>
+  <div class="g4"><div class="card sw"><i style="background:#2853D9"></i><div><h3 style="font-size:15px">Memory blue</h3><p style="margin:2px 0 0;font-size:13px">Memory events only</p></div></div><div class="card sw"><i style="background:#E9A23B"></i><div><h3 style="font-size:15px">Sensitive amber</h3><p style="margin:2px 0 0;font-size:13px">Sensitive info only</p></div></div><div class="card sw"><i style="background:#A1281E"></i><div><h3 style="font-size:15px">Destructive red</h3><p style="margin:2px 0 0;font-size:13px">Forget everything only</p></div></div><div class="card sw"><i style="background:#16181D"></i><div><h3 style="font-size:15px">Ink</h3><p style="margin:2px 0 0;font-size:13px">Text and safe actions</p></div></div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><span class="chip" style="background:#E8F6EF;color:var(--g)">✓ WCAG AA contrast</span><span class="chip" style="background:#E8F6EF;color:var(--g)">✓ Never colour alone</span><span class="chip" style="background:#E8F6EF;color:var(--g)">✓ 44px tap targets</span><span class="chip" style="background:#E8F6EF;color:var(--g)">✓ Screen reader status updates</span><span class="chip" style="background:#E8F6EF;color:var(--g)">✓ Typed confirm for destructive actions</span></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Validation</div><h2>Four tasks, each with a bar to clear</h2><p>A moderated test with 5 participants on the Figma Make prototype. Headline measure: "feeling in control", rated before and after.</p></div>
+  <div class="g4"><div class="card task"><b>&lt;20s</b><p style="color:var(--ink);font-weight:500">"Make it forget your answer-length preference"</p><p style="font-size:13px">Target: under 20s, unaided</p></div><div class="card task"><b>5/5</b><p style="color:var(--ink);font-weight:500">"Mention a family illness. Don&#x27;t let it remember"</p><p style="font-size:13px">Target: all choose &quot;Don&#x27;t remember&quot;</p></div><div class="card task"><b>4/5</b><p style="color:var(--ink);font-weight:500">"This answer seems off. Fix it"</p><p style="font-size:13px">Target: fixed from the answer</p></div><div class="card task"><b>4/5</b><p style="color:var(--ink);font-weight:500">"You&#x27;re about to share your screen"</p><p style="font-size:13px">Target: can explain what hides</p></div></div>
+  <div class="outs" style="margin-top:20px"><div class="oc"><b>4 of 5</b><span>testers felt in control</span></div><div class="oc"><b>5 of 5</b><span>found and fixed a memory</span></div></div>
+</section>
+
+<section>
+  <div class="sh"><div class="k">Reflection</div><h2>Trust is designed in small moments</h2></div>
+  <div class="g3"><div class="card"><h3>Trust lives in small moments</h3><p>A one-line notice and an Undo button did more than the whole memory page.</p></div><div class="card"><h3>Defaults are decisions</h3><p>Making "Don't remember" primary changes behaviour more than any explanation.</p></div><div class="card"><h3>Next</h3><p>Run the study, then explore memory for family accounts and AI agents.</p></div></div>
+</section>
+<div class="end"><div><h2>Thanks for reading.</h2><p>Next case study: Los Santos Stories</p></div>
+<div class="btns"><a class="btn" href="lossantos.html">Read next →</a><a class="btn o" href="./#contact">Get in touch</a></div></div>
+
+<footer><span>© 2026 Jasdeep Singh</span><span>AI-Powered UX Designer</span></footer>
+</div>
+<script>
+try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
+function toTop(){if(!location.hash||location.hash==='#'){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}}
+toTop();document.addEventListener('DOMContentLoaded',toTop);window.addEventListener('load',function(){toTop();setTimeout(toTop,50)});window.addEventListener('pageshow',toTop);
+</script></body></html>
